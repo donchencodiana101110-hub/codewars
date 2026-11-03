@@ -49,3 +49,25 @@ print(is_square(25))
 print(is_square(26))
 
 print()
+# Задача №5
+
+def make_upper_case(s):
+    return s.upper()
+print(make_upper_case("hello"))
+
+# Задача №6
+def hero(bullets, dragons):
+    if bullets >= dragons * 2:
+        return True
+    else:
+        return False
+
+print(hero(18, 5))
+print(hero(23, 17))
+
+print()
+# Задача №7
+
+def greet():
+    return "hello world!"
+print(greet())
