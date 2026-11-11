@@ -81,4 +81,23 @@ print(get_age("2 years old"))
 print(get_age("4 years old"))
 print(get_age("5 years old"))
 print(get_age("7 years old"))
-                    
+
+print()
+# Задача №9
+
+def find_smallest_int(arr):
+    return min(arr)
+
+print(find_smallest_int([34, 15, 88, 2,]))
+print(find_smallest_int([34, -345, -1, 100]))
+
+print()
+# Задача №10
+
+def invert(list):
+    return [-x for x in list]
+print(invert([-1, -2, -3, -4, -5]))
+print(invert([-1, 2, -3, 4, -5]))
+print(invert([]))
+
+print()
