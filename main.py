@@ -214,3 +214,5 @@ print(remove_char("ok"))
 print(remove_char("ooopsss"))
 
 print()
+
+# Задача №21
