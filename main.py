@@ -1,5 +1,9 @@
 # Задача №1
 
+from pyclbr import Class
+from xml.dom.minidom import Node
+
+
 def past(h, m, s):
     result = (h * 3600 + m * 60 + s) * 1000
     return result
@@ -216,3 +220,322 @@ print(remove_char("ooopsss"))
 print()
 
 # Задача №21
+
+def string_to_array(s):
+    return s.split(' ')
+
+print(string_to_array("Robin Singh"))
+print(string_to_array("CodeWars"))
+print(string_to_array("I love arrays they are my favorite"))
+print(string_to_array("1 2 3"))
+print(string_to_array(""))
+
+print()
+# Задача №22
+
+def zeros(n):
+    count = 0
+    while n >= 5:
+        n //= 5
+        count += n
+    return count
+
+print(zeros(6))
+print(zeros(100))
+print(zeros(100000))
+print(zeros(30))
+
+print()
+# Задача №23
+
+def domain_name(url):
+    url = url.replace("http://", "")
+    url = url.replace("https://", "")
+    url = url.replace("www.", "")
+    return url.split(".")[0]
+
+print(domain_name("http://google.co.jp"))
+print(domain_name("www.xakep.ru"))
+print(domain_name("http://www.codewars.com/kata/"))
+print(domain_name("https://youtube.com"))
+
+print()
+# Задача №24
+
+def zero(op=None):
+    if op is None:
+        return 0
+    return op(0)
+
+def one(op=None):
+    if op is None:
+        return 1
+    return op(1)
+
+def two(op=None):
+    if op is None:
+        return 2
+    return op(2)
+    
+def three(op=None):
+    if op is None:
+        return 3
+    return op(3)
+
+def four(op=None):
+    if op is None:
+        return 4
+    return op(4)
+
+def five(op=None):
+    if op is None:
+        return 5
+    return op(5)
+
+def six(op=None):
+    if op is None:
+        return 6
+    return op(6)
+
+def seven(op=None): 
+    if op is None:
+        return 7
+    return op(7)
+
+def eight(op=None):
+    if op is None:
+        return 8
+    return op(8)
+
+def nine(op=None):
+    if op is None:
+        return 9
+    return op(9)
+
+
+def plus(y):
+    def add(x):
+        return x + y
+    return add
+
+def minus(y):
+    def sub(x):
+        return x - y
+    return sub
+    
+def times(y):
+    def mul(x):
+        return x * y
+    return mul
+
+def divided_by(y):
+    def div(x):
+        return x // y
+    return div
+
+print(seven(times(five())))
+print(four(plus(nine())))
+print(eight(minus(three())))
+print(six(divided_by(two())))
+
+print()
+#Задача №25
+
+def fibonacci(n, cache={}):
+    if n in [0, 1]:
+        return n
+    
+    if n in cache:
+        return cache[n]
+    cache[n] = fibonacci(n - 1, cache) + fibonacci(n - 2, cache)
+    
+    return cache[n]
+
+print(fibonacci(70))
+print(fibonacci(50))
+
+print()
+# Задача №26
+
+def generate_hashtag(s):
+    if s == "":
+        return False
+    
+    words = s.split()
+    
+    if len(words) == 0:
+        return False 
+    
+    result = "#"
+    
+    for word in words:
+        result += word.capitalize()
+        
+    if len(result) > 140: 
+        return False
+        
+    return result 
+
+print(generate_hashtag('CoDeWaRs is niCe'))
+print(generate_hashtag('      Codewars'))
+print(generate_hashtag('c i n'))
+print(generate_hashtag(""))
+
+print()
+# Задача №27
+
+# def loop_size(node):
+#     slow = node
+#     fast = node
+    
+#     while True:
+#         slow = slow.next
+#         fast = fast.next.next
+        
+#         if slow == fast:
+#             break
+         
+#     count = 1
+#     all = slow.next
+    
+#     while all != slow:
+#         count += 1
+#         all = all.next
+         
+#     return count
+
+# node = Node.create_chain(1, 3)
+# print(loop_size(node))
+
+# print()
+# Задача №28
+
+def make_readable(seconds):
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    seconds_1 = seconds % 60
+    return f"{hours:02}:{minutes:02}:{seconds_1:02}"
+
+print(make_readable(59))
+print(make_readable(60))
+print(make_readable(3600))
+print(make_readable(86399))
+
+print()
+# Задача №29
+
+def alphanumeric(password: str) -> bool:
+    if password == "":
+        return False
+    
+    allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    
+    for simbol in password:
+        if simbol not in allowed:
+            return False
+        
+    return True
+    
+print("hello world_")
+print("PassW0rd")
+print("      ")
+
+print()
+# Задача №30
+class Treenode:
+
+    def __init__(self, L, R, n):
+        self.left = L
+        self.right = R
+        self.value = n
+
+def tree_by_levels(node):
+    if node is None:
+        return []
+    
+    result = []
+    queue = [node]
+    
+    for all in queue:
+        result.append(all.value)
+        if all.left:
+            queue.append(all.left)
+        if all.right:
+            queue.append(all.right)
+            
+    return result 
+
+print(tree_by_levels((Treenode(Treenode(None, Treenode(None, None, 4), 2), Treenode(Treenode(None, None, 5), Treenode(None, None, 6), 3), 1))))
+print()
+
+# Задача №31
+
+def balanced_parens (n):
+    variants = [["", 0, 0]]
+    result = []
+    
+    while variants:
+        text, open_cnt, close_cnt = variants.pop()
+        
+        if len(text) == n * 2:
+            result.append(text)
+            
+        if open_cnt < n: 
+            variants.append([text + "(", open_cnt + 1, close_cnt])
+            
+        if close_cnt < open_cnt:
+            variants.append([text + ")", open_cnt, close_cnt + 1])
+            
+    return result
+
+print(balanced_parens(1))
+print(balanced_parens(4))
+print(balanced_parens(0))
+
+print()
+# Задача №32
+
+def array_diff(a, b):
+    result = []
+    for x in a:
+        if x not in b:
+            result.append(x)
+    return result
+
+print(array_diff([1,2], [1]))
+print(array_diff([1,2,3], [1, 2]))
+print(array_diff([], [1,2]))
+
+print()
+# Задача №33
+
+def better_than_average(class_points, your_points):
+    avn = sum(class_points) / len(class_points)
+    return your_points > avn 
+
+print(better_than_average([100, 90, 80], 70))
+print(better_than_average([2, 3], 5))
+
+print()
+# Задача №34
+
+def abbrev_name(name):
+    first, last = name.split()
+    return f"{first[0].upper()}.{last[0].upper()}"
+
+print(abbrev_name("Sam Harris"))
+print(abbrev_name("Evan C"))
+
+print()
+# Задача №35
+
+def maps(a):
+    result = []
+    for x in a:
+        result.append(x * 2)
+    return result
+
+print(maps([2, 5, 9]))
+print(maps([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+print()
